@@ -9,6 +9,7 @@ import { auth, provider } from '../utils/firebase';
 import { ServerUrl } from '../App';
 
 
+
 const Auth = () => {
 
     const handleGoogleAuth = async () => {
