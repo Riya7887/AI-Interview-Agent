@@ -5,12 +5,12 @@ const storage = multer.diskStorage({
         cb(null , "public")
     },
     filename: function(req , file , cb){
-        const filename = DataTransfer.now() + "-" + file.originalname;
+        const filename = Date.now() + "-" + file.originalname;
         cb(null , filename)
     }
 })
 
 export const upload = multer({
-    storsge,
+    storage,
     limits: {fileSize: 5 * 1024 * 1024 }, // 5MB limit
 });

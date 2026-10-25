@@ -7,7 +7,7 @@ export const analyzeResume = async (req,res) => {
         if(!req.file){
             return res.status(400).json({message: "Resume required" });
         }
-        const filepath = req.file.filepath
+        const filepath = req.file.path
 
         const fileBuffer = await fs.promises.readFile(filepath)
         const uint8Array = new Uint8Array(fileBuffer)
@@ -50,7 +50,7 @@ export const analyzeResume = async (req,res) => {
         ];
 
 
-        const aiResponse = await askAi(message)
+        const aiResponse = await askAi(messages)
 
         const parsed = JSON.parse(aiResponse);
 
